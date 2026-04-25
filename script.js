@@ -24,7 +24,7 @@ document.getElementById("promptForm").addEventListener("submit", function (e) {
   const folderName = slugify(businessName + " " + get("location"));
   const repoName = get("repoName") === "nicht bekannt" ? "Web-Prompt-Builder" : get("repoName");
 
-  const prompt = `Du bist ein sehr guter Webdesigner und Frontend-Entwickler. Erstelle KEINE typische KI-Landingpage. Ziel ist eine cleane, bildstarke, glaubwürdige Website wie eine echte Restaurant-/Geschäftswebsite.
+  const prompt = `Du bist ein sehr guter Webdesigner und Frontend-Entwickler. Erstelle KEINE typische KI-Landingpage. Ziel ist eine cleane, bildstarke, glaubwürdige Website wie eine echte lokale Geschäftswebsite.
 
 WICHTIGER DESIGN-STIL:
 Orientiere dich an echten modernen lokalen Websites: grosse echte Bilder, ruhiger Header, klare Navigation, dezente Farben, wenig unnötiger Text, keine übertriebenen Karten-Layouts. Die Website soll visuell und hochwertig wirken, nicht wie eine generische KI-Demo.
@@ -69,6 +69,27 @@ projects/${folderName}/assets/   falls Assets nötig sind
 
 Niemals Dateien im Root erstellen. Bestehende Projekte nicht überschreiben. Wenn der Ordner existiert, verwende projects/${folderName}-2/.
 
+QUELL-WEBSITE NUTZEN:
+Wenn eine aktuelle Website angegeben ist, analysiere sie zuerst gründlich:
+- sichtbare Texte
+- Navigation
+- Logo
+- Bilder
+- Öffnungszeiten
+- Kontaktinfos
+- Speisekarte/Leistungen/Angebot
+- Ton und Stil der bestehenden Marke
+
+Wenn die bestehende Website gute Texte enthält, darfst und sollst du diese als Grundlage verwenden. Kürze, ordne und verbessere sie, aber erfinde keine neuen Fakten. Übernimm wichtige Originalformulierungen, wenn sie professionell und passend sind. Wenn die aktuelle Website bereits gute Informationen hat, darfst du nicht nur neue KI-Texte schreiben.
+
+LOGO IST PFLICHT:
+- Jede Website MUSS ein Logo oder mindestens eine klare Wortmarke haben.
+- Wenn ein echtes Logo auf der aktuellen Website existiert, nutze es oder baue es sichtbar ein, wenn technisch möglich.
+- Wenn kein echtes Logo vorhanden ist, erstelle einen professionellen Logo-Platzhalter als typografische Wortmarke aus dem Geschäftsnamen.
+- Der Logo-Platzhalter soll hochwertig wirken: keine billigen Initialen-Kreise, kein generisches App-Icon.
+- Logo/Wortmarke muss im Header und im Footer vorkommen.
+- Wenn das echte Logo nicht eingebunden werden kann, schreibe im README: "Logo muss vor Veröffentlichung durch offizielles Logo ersetzt werden."
+
 BILDER SIND PFLICHT:
 1. Prüfe die aktuelle Website, falls angegeben.
 2. Nutze vorhandene öffentlich sichtbare Bilder von der aktuellen Website als Hero-/Galerie-Bilder, wenn technisch möglich.
@@ -78,13 +99,6 @@ BILDER SIND PFLICHT:
 6. Kein Layout, das hauptsächlich aus Textkarten auf hellem Verlauf besteht.
 7. Erstelle eine Galerie-/Atmosphäre-Sektion mit 2–4 Bildflächen oder echten Bildern.
 8. Schreibe im README klar, welche Bilder echt sind und welche ersetzt werden müssen.
-
-LOGO / BRANDING:
-- Wenn ein echtes Logo auf der aktuellen Website existiert, verwende es oder baue es sauber ein.
-- Falls kein Logo verfügbar ist, erstelle eine hochwertige typografische Wortmarke mit dem Geschäftsnamen.
-- Kein billiger Initialen-Kreis wie "RK", ausser der Nutzer verlangt es explizit.
-- Header muss ein Logo/eine Wortmarke enthalten.
-- Footer muss dieselbe Marke wieder aufnehmen.
 
 LAYOUT-VORGABE:
 Baue die Seite so:
@@ -100,7 +114,7 @@ ANTI-KI-REGELN:
 Vermeide unbedingt:
 - pastellfarbene riesige leere Flächen ohne Bilder
 - generische Karten mit Nummern wie 01, 02, 03
-- künstliche Überschriften wie "Schweizer und italienische Küche in ruhiger, einladender Atmosphäre" als riesige Textwand ohne Bild
+- künstliche riesige Textüberschriften ohne Bildbezug
 - Fake-Testimonials
 - Fake-Statistiken
 - erfundene Speisen, Preise, Bewertungen oder Auszeichnungen
@@ -110,6 +124,7 @@ Vermeide unbedingt:
 - sterile SaaS-Optik
 
 TEXTREGELN:
+- Wenn die bestehende Website Text enthält: vorhandene Texte bevorzugen, strukturieren und modernisieren.
 - Schreibe kurz, natürlich, lokal und glaubwürdig.
 - Nicht zu werblich.
 - Keine falschen Fakten.
@@ -147,18 +162,20 @@ TECHNIK:
 
 QUALITÄTSKONTROLLE:
 Vor Abschluss selbst prüfen:
-1. Sieht die Seite im ersten Screenshot wie eine echte moderne lokale Website aus?
+1. Sieht die Seite wie eine echte moderne lokale Website aus?
 2. Gibt es grosse Bilder oder hochwertige Bildflächen?
-3. Ist das Logo/Branding sauber?
-4. Gibt es keine generischen KI-Karten/Nummern/Gradient-Spielereien?
-5. Sind alle Dateien im richtigen Ordner?
-6. Sind fehlende Daten sauber behandelt?
+3. Ist Logo/Branding sichtbar und sauber?
+4. Wurden vorhandene Texte der Website genutzt, falls vorhanden?
+5. Gibt es keine generischen KI-Karten/Nummern/Gradient-Spielereien?
+6. Sind alle Dateien im richtigen Ordner?
+7. Sind fehlende Daten sauber behandelt?
 
 README:
 README.md muss enthalten:
 - Demo-Hinweis: nicht offizielle Website
 - Quelle der verwendeten Informationen
-- Bildrechte-Hinweis
+- welche Texte/Bilder/Logos von der bestehenden Website stammen
+- Bildrechte- und Logo-Hinweis
 - Vorschau-/Deployment-Anleitung für ${get("deployment")}
 
 GIT-COMMANDS AM ENDE:
