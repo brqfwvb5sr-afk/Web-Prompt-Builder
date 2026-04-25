@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webbilder – Prompt Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <p class="badge">Webbilder</p>
+      <h1>Website-Prompt für lokale Geschäfte erstellen</h1>
+      <p>Gib die Informationen eines Geschäfts ein. Das Tool erstellt daraus einen fertigen Prompt, den du an deinen Codex-Agenten schicken kannst.</p>
+    </section>
+
+    <section class="grid">
+      <form id="promptForm" class="card">
+        <h2>Geschäftsdaten</h2>
+
+        <label>Name des Geschäfts<input id="businessName" placeholder="z. B. Café Seeblick" required /></label>
+        <label>Branche
+          <select id="businessType">
+            <option>Restaurant</option><option>Café</option><option>Coiffeur</option><option>Kosmetikstudio</option><option>Handwerker</option><option>Detailhandel</option><option>Praxis</option><option>Fitness / Sport</option><option>Andere</option>
+          </select>
+        </label>
+        <label>Ort / Region<input id="location" placeholder="z. B. Luzern, Hochdorf, Sursee" /></label>
+        <label>Adresse<input id="address" placeholder="Strasse, PLZ Ort" /></label>
+        <label>Telefon / WhatsApp<input id="phone" placeholder="+41 ..." /></label>
+        <label>E-Mail<input id="email" placeholder="info@..." /></label>
+        <label>Aktuelle Website, falls vorhanden<input id="currentWebsite" placeholder="https://..." /></label>
+        <label>Öffnungszeiten<textarea id="hours" placeholder="Mo–Fr: 08:00–18:00&#10;Sa: 09:00–16:00"></textarea></label>
+        <label>Beschreibung / Notizen<textarea id="description" placeholder="Was macht das Geschäft? Was ist besonders?"></textarea></label>
+        <label>Stil der Website
+          <select id="style">
+            <option>modern, sauber und vertrauenswürdig</option><option>elegant und hochwertig</option><option>warm, lokal und sympathisch</option><option>minimalistisch und professionell</option><option>jung, frisch und auffällig</option>
+          </select>
+        </label>
+        <label>Ziel der Website
+          <select id="goal">
+            <option>mehr Kontaktanfragen</option><option>mehr Reservationen</option><option>mehr Anrufe</option><option>besserer erster Eindruck</option><option>mehr Vertrauen über Google</option>
+          </select>
+        </label>
+        <label>Umfang
+          <select id="size">
+            <option>Kleine Onepager-Website</option><option>Normale Website mit mehreren Sektionen</option><option>Grössere Website mit mehreren Unterseiten</option>
+          </select>
+        </label>
+        <button type="submit">Prompt erstellen</button>
+      </form>
+
+      <section class="card output-card">
+        <h2>Generierter Prompt</h2>
+        <textarea id="output" readonly placeholder="Hier erscheint dein Prompt..."></textarea>
+        <div class="actions">
+          <button id="copyBtn" type="button">Prompt kopieren</button>
+          <button id="clearBtn" type="button" class="secondary">Zurücksetzen</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
