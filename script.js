@@ -24,10 +24,10 @@ document.getElementById("promptForm").addEventListener("submit", function (e) {
   const folderName = slugify(businessName + " " + get("location"));
   const repoName = get("repoName") === "nicht bekannt" ? "Web-Prompt-Builder" : get("repoName");
 
-  const prompt = `Du bist ein professioneller Fullstack-Webentwickler und UI/UX-Designer.
+  const prompt = `Du bist ein erfahrener Webdesigner, Frontend-Entwickler und Conversion-Texter. Erstelle keine generische KI-Website. Erstelle eine glaubwürdige, lokale, hochwertige Demo-Website, die wie eine echte Website eines kleinen Schweizer Geschäfts wirkt.
 
 AUFGABE:
-Erstelle eine hochwertige Demo-Website für ein lokales Geschäft und speichere sie sauber in einem eigenen Unterordner im bestehenden GitHub-Repository.
+Erstelle eine Demo-Website für ein lokales Geschäft und speichere alle Dateien sauber in einem eigenen Unterordner im bestehenden GitHub-Repository.
 
 GESCHÄFTSDATEN:
 Name: ${businessName}
@@ -45,7 +45,7 @@ ${get("hours")}
 BESCHREIBUNG / ÖFFENTLICHE INFORMATIONEN:
 ${get("description")}
 
-NOTIZEN FÜR DIE WEBSITE:
+INTERNE NOTIZEN FÜR DIE WEBSITE:
 ${get("notes")}
 
 DESIGN-VORGABEN:
@@ -55,89 +55,121 @@ Umfang: ${get("size")}
 Technik: ${get("tech")}
 Deployment-Ziel: ${get("deployment")}
 
-SEHR WICHTIGE REGELN:
-- Erfinde keine falschen Fakten, keine Bewertungen, keine Preise, keine Auszeichnungen und keine nicht angegebenen Angebote.
-- Wenn Informationen fehlen, verwende neutrale Platzhalter oder schreibe zurückhaltend, z. B. "Kontakt aufnehmen" statt falsche Angaben.
-- Nutze die Notizen als inhaltliche Hinweise, aber veröffentliche keine internen Notizen direkt als peinlichen Klartext.
-- Die Website soll wie eine seriöse Kundendemo wirken, nicht wie ein KI-Experiment.
-- Schreibe alle Texte natürlich, professionell und passend zur Branche.
-- Die Seite muss auf Smartphone, Tablet und Desktop gut aussehen.
-- Achte auf saubere Abstände, gute Typografie, klare Buttons und schnelle Ladezeit.
-
 GITHUB-ORDNERSTRUKTUR – ABSOLUT WICHTIG:
-Das bestehende GitHub-Repository heisst:
-${repoName}
-
+Repository: ${repoName}
 Erstelle KEINE Dateien direkt im Root-Verzeichnis.
-Erstelle ALLE Dateien ausschliesslich in diesem Unterordner:
+Erstelle ALLE Dateien ausschliesslich in:
 projects/${folderName}/
 
-Die Struktur muss genau so aussehen:
+Pflichtdateien:
 projects/${folderName}/index.html
 projects/${folderName}/style.css
 projects/${folderName}/script.js
 projects/${folderName}/README.md
 
-Falls du zusätzliche Dateien brauchst, müssen sie ebenfalls in diesem Ordner liegen, z. B.:
+Falls Bilder, Logos oder Assets gebraucht werden:
 projects/${folderName}/assets/
 
-WICHTIG:
-- Überschreibe keine bestehenden Projekte im Ordner projects/.
-- Wenn der Ordner projects/ bereits existiert, erstelle nur den neuen Unterordner projects/${folderName}/.
-- Wenn der Unterordner projects/${folderName}/ bereits existiert, frage nicht nach, sondern erstelle eine Variante mit Suffix, z. B. projects/${folderName}-2/.
-- Jede neue Website muss in einem eigenen Unterordner liegen, damit mehrere Kundendemos übersichtlich bleiben.
+Wenn projects/${folderName}/ bereits existiert, verwende projects/${folderName}-2/.
+Bestehende Projekte niemals überschreiben.
 
-INHALT DER WEBSITE:
-Erstelle je nach Branche passende Sektionen:
-1. Hero-Bereich mit klarer Überschrift und Call-to-Action
-2. Kurzvorstellung des Geschäfts
-3. Angebote / Leistungen / Menü / Services passend zur Branche
-4. Warum dieses Geschäft? Vertrauens- und Nutzenargumente
-5. Öffnungszeiten
-6. Standort / Kontakt
-7. Abschliessender Call-to-Action
+BILDER UND LOGO – SEHR WICHTIG:
+1. Wenn eine aktuelle Website angegeben ist, analysiere deren sichtbare Inhalte und verwende vorhandene öffentlich sichtbare Bilder/Logo nur dann, wenn sie seriös eingebunden werden können.
+2. Speichere fremde Bilder nicht ungeprüft dauerhaft als eigene Assets, ausser sie sind offensichtlich Bestandteil der Kundendemo und öffentlich auf der bestehenden Website sichtbar. Besser: verlinke sie nur oder dokumentiere im README, dass Bildrechte geprüft werden müssen.
+3. Wenn keine echten Bilder vorhanden sind, verwende hochwertige neutrale Platzhalter: keine kitschigen Stockfoto-Klischees, keine KI-typischen generischen Menschenbilder, keine unpassenden Icons.
+4. Verwende CSS-Placeholder, Farbflächen, dezente Muster oder branchentypische neutrale Bildbereiche mit klarer Beschriftung wie "Bild folgt".
+5. Erstelle ein einfaches textbasiertes Logo/Wordmark aus dem Geschäftsnamen. Kein generisches Kreis-Icon mit Initialen, ausser es passt wirklich. Das Logo soll im Header und optional im Footer erscheinen.
+6. Wenn ein echtes Logo auf der aktuellen Website existiert, verwende es als Referenz oder binde es ein, falls technisch und rechtlich sinnvoll. Sonst erstelle eine zurückhaltende typografische Wortmarke.
 
-CALL-TO-ACTION:
-Nutze passende Buttons, z. B.:
-- Jetzt anrufen
-- Kontakt aufnehmen
-- Route planen
-- Reservation anfragen
-Falls keine E-Mail bekannt ist, verwende keine E-Mail-Adresse im Kontaktformular.
-Falls keine Website bekannt ist, schreibe nicht "Besuchen Sie unsere Website".
+ANTI-KI-DESIGN-REGELN:
+Vermeide unbedingt typische KI-Website-Merkmale:
+- keine übertriebenen Gradient-Hintergründe ohne Grund
+- keine generischen Karten mit immer gleichen Icons
+- keine künstlichen Superlative wie "Ihr vertrauenswürdiger Partner für alles"
+- keine erfundenen 5-Sterne-Bewertungen
+- keine Fake-Statistiken wie "10+ Jahre Erfahrung", wenn nicht angegeben
+- keine riesigen Hero-Texte mit leerem Marketing-Blabla
+- keine austauschbaren Texte wie "Qualität, Vertrauen und Leidenschaft"
+- keine komplett überfüllte Landingpage
+- keine erfundenen Teammitglieder
+
+REALISTISCHER LOOK:
+Die Website soll so aussehen, als hätte ein kleiner professioneller Webdesigner sie für ein echtes lokales Geschäft gebaut:
+- dezente Farben, passend zur Branche
+- klare Navigation
+- echtes Layout mit genügend Weissraum
+- gute Typografie
+- glaubwürdige Texte
+- lokale Hinweise, wenn sie aus den Daten ableitbar sind
+- Header mit Logo/Wortmarke
+- Footer mit Kontakt, Öffnungszeiten und Demo-Hinweis
+- mobile Navigation oder sauberer responsive Header
+
+INHALTLICHE REGELN:
+- Erfinde keine falschen Fakten, keine Preise, keine Bewertungen, keine Auszeichnungen und keine nicht angegebenen Angebote.
+- Wenn Informationen fehlen, verwende neutrale Formulierungen oder Platzhalter.
+- Nutze interne Notizen als Design-/Inhaltshinweise, aber schreibe sie nicht direkt peinlich sichtbar auf die Website.
+- Falls keine E-Mail bekannt ist, kein Fake-Mail schreiben.
+- Falls keine Website bekannt ist, keinen Website-Link erfinden.
+- Falls keine Bilder vorhanden sind, visuelle Platzhalter verwenden und im README notieren.
+- Schreibe auf Deutsch, natürlich und passend für die Schweiz.
+
+PFLICHT-SEKTIONEN:
+1. Header mit Logo/Wortmarke und Navigation
+2. Hero mit klarem Nutzenversprechen und CTA
+3. Kurze Vorstellung des Geschäfts
+4. Angebot / Leistungen / Menü / Services passend zur Branche
+5. Visueller Bereich mit echten Bildern oder hochwertigen Platzhaltern
+6. Öffnungszeiten
+7. Standort / Kontakt / Route planen
+8. Abschliessender CTA
+9. Footer mit Logo/Wortmarke, Kontaktinfos und Demo-Hinweis
+
+BRANCHENLOGIK:
+- Restaurant/Café: Atmosphäre, Angebot, Öffnungszeiten, Reservation/Anruf, Karte nur wenn Daten vorhanden
+- Coiffeur/Kosmetik: Leistungen, Termin-Anfrage, sauberer hochwertiger Look
+- Handwerker: Leistungen, Region, Kontaktanfrage, Vertrauen ohne Fake-Bewertungen
+- Detailhandel: Sortiment, Standort, Öffnungszeiten, Besuch im Laden
+- Praxis: ruhig, seriös, übersichtlich, keine medizinischen Versprechen
 
 TECHNISCHE ANFORDERUNGEN:
-- Erstelle vollständigen, lauffähigen Code.
-- Nutze semantisches HTML.
-- Nutze modernes CSS mit responsive Design.
-- JavaScript nur verwenden, wenn es sinnvoll ist.
-- Keine externen Abhängigkeiten, ausser sie sind wirklich nötig.
-- Kein Backend.
-- Keine Tracking-Skripte.
-- Keine erfundenen Bilder. Nutze neutrale Platzhalter oder CSS-Flächen, falls keine Bilder vorhanden sind.
+- Vollständig lauffähiger Code
+- Semantisches HTML
+- Modernes CSS mit responsive Design
+- JavaScript nur, wenn sinnvoll
+- Kein Backend
+- Keine Tracking-Skripte
+- Möglichst keine unnötigen externen Abhängigkeiten
+- Barrierearme Kontraste und lesbare Schriftgrössen
+- Meta title und meta description setzen
+- Sinnvolle Alt-Texte für Bilder/Platzhalter
 
 README:
-Erstelle in projects/${folderName}/README.md:
-- Name des Projekts
-- Kurzbeschreibung
-- verwendete Geschäftsdaten
-- Hinweis, dass es eine Demo ist
-- Anleitung zur lokalen Vorschau
+Erstelle README.md mit:
+- Projektname
+- Geschäftsdaten
+- Hinweis: Demo-Website, nicht offizielle Website
+- Bild-/Logo-Hinweis: echte Bilder nur mit Rechten verwenden
+- lokale Vorschau-Anleitung
 - Deployment-Hinweis für ${get("deployment")}
 
 SHELL / GIT-HINWEISE:
-Gib am Ende kurz passende Commands an, z. B.:
+Gib am Ende kurz passende Commands an:
 mkdir -p projects/${folderName}
-# Dateien in projects/${folderName}/ erstellen
 git add projects/${folderName}
 git commit -m "Add demo website for ${businessName}"
 git push
 
+QUALITÄTSKONTROLLE VOR ABSCHLUSS:
+Prüfe selbst:
+- Sieht die Seite noch generisch oder klar KI-generiert aus? Wenn ja, überarbeiten.
+- Gibt es Logo/Wortmarke, Header und Footer?
+- Werden fehlende Daten sauber behandelt?
+- Sind Bilder oder Platzhalter professionell gelöst?
+- Liegen alle Dateien im richtigen Ordner?
+
 OUTPUT:
-- Erstelle direkt die Dateien im genannten Ordner.
-- Gib nur notwendige kurze Hinweise aus.
-- Keine langen Erklärungen.
-- Ziel ist eine fertige, verkaufbare Demo-Website.`;
+Erstelle direkt die Dateien im genannten Ordner. Keine langen Erklärungen. Ziel ist eine fertige, glaubwürdige, verkaufbare Demo-Website.`;
 
   document.getElementById("output").value = prompt;
 });
